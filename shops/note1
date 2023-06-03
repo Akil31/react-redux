@@ -1,0 +1,103 @@
+import { useSelector } from "react-redux";
+import { ActionTypes } from "../constant/action-type";
+
+const initialState = {
+    numberproducts: 0,
+    products: [],
+    totalprice: 0
+};
+
+// const qty = useSelector(state=>state.allproduct.numberproducts)
+// console.log(initialState)
+export const productsReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case ActionTypes.ADD_PRODUCTS:
+            // const { payload } = aciton;
+  const item = state.products.find(
+    product => product.id === payload.id,
+  );
+
+  if (item) {
+    return {
+      ...state,
+      products: state.products.map(item => item.id === payload.id
+        ? {
+          ...item,
+          qty: item.qty + 1,
+        }
+        : item
+      ),
+      totalPrice: state.totalPrice + payload.price,
+    };
+  }
+
+  return {
+    ...state,
+    products: [...state.products, payload],
+    totalPrice: state.totalPrice + payload.price,
+  };
+}}
+
+export const selectedProuctsReducer = (state = {}, { type, payload }) => {
+    switch (type) {
+        case ActionTypes.SELECTED_PRODUCTS:
+            return {
+                ...state,
+                ...payload
+            };
+        default:
+            return state;
+    }
+}
+
+export const deletedProductsReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case ActionTypes.DELETE_PRODUCTS:
+            // let id_ = state[payload.id]
+            return {
+                ...state,
+                products:state.products.filter(
+                    product => product !== payload,
+                    ),
+                    totalPrice: state.totalPrice + payload.price,
+                // numberproducts: state.numberproducts - id_,
+                // product: state.products.filter(product => {
+                //     return product.id != state.product[payload].id
+                // })
+            };
+        default:
+            return state;
+    }
+}
+
+export const clearCart = (state = initialState , {type, payload}) =>{
+    switch(type) {
+        case ActionTypes.CLEAR_CART:
+            return {
+                ...initialState
+            };
+    }
+}
+
+export const incresaseProductsReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case ActionTypes.INCREASE_PRODUCTS:
+            return {
+                ...state,
+                product: payload++,
+                numberproducts: state.numberproducts + 1,
+
+            };
+        default:
+            return state;
+    }
+}
+export const getNumberCartReducer = (state = initialState, { type, payload }) => {
+    switch (type) {
+        case ActionTypes.ADD_PRODUCTS:
+            return {
+                ...state
+            }
+    }
+}
+
