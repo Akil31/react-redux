@@ -16,7 +16,7 @@ function App() {
   return (
     <div className="App">
 
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Header />
         <Switch>
           <Route exact path="/" component={Home} />
@@ -33,19 +33,19 @@ function App() {
             <Login />
           </Route>
         </Switch>
-        <AddtoCard /> */}
+        {/* <AddtoCard /> */}
 
         {/* <Route>404 Not Found !</Route> */}
         {/* <div className='mb-5 pb-5'></div>
         <div className='mb-5 pb-5'></div> */}
-        {/* <Footer />
-      </BrowserRouter> */}
+        <Footer />
+      </BrowserRouter>
       {/* <AddtoCard /> */}
 
       {/* <ProductsListing/> */}
       {/* <ProductsDetails/> */}
       {/* <prodcut_reducer/>   */}
-      <ProductsComponent/>
+      {/* <ProductsComponent/> */}
     </div>
   );
 }
