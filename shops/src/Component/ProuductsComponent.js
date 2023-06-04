@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { addProudcts } from "../redux/action/products_action";
 
 const ProductsComponent = () => {
-  const products = useSelector((state) => state.allProudcts.products)
-  console.log("items:",products);
+  const products = useSelector((state) =>state.allProudcts.products)
+  console.log(products);
 
   const dispatch =useDispatch();
 
   // useEffect(()=>{
-  //       products
-  // },[products])
+  // products
+  // },[0])
 
   return (
     <div className="row" style={{ marginTop: '10px' }}>
@@ -21,8 +21,8 @@ const ProductsComponent = () => {
           <h1>cartcount</h1>
         </div>
         <div className="row">
-          {products.map((product,index) => (
-            <div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4" style={{ marginBottom: '18px' }}>
+          {products.map((product) => (
+            <div key={product.id} className="col-11 col-md-6 col-lg-3 mx-0 mb-4" style={{ marginBottom: '18px' }}>
               <a href={`/product/${product.id}`}>
                 <div className='custom-card overflow-hidden h-100 shadow'>
                   <img className="card-img-center img-fluid " src={product.image}

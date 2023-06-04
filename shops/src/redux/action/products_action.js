@@ -1,7 +1,7 @@
 import { ActionTypes } from "../constant/action-type";
 
 export const addProudcts = product => {
-    return {
+    return {    
         type: ActionTypes.ADD_PRODUCTS,
         payload:product,
     };
