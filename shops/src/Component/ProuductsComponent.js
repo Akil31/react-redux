@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { addProudcts } from "../redux/action/products_action";
 
 const ProductsComponent = () => {
-  const products = useSelector((state) =>state.allProudcts.products)
+  const products = useSelector((state) => state.allProudcts.products)
   console.log(products);
 
   const dispatch =useDispatch();
 
   // useEffect(()=>{
   // products
-  // },[0])
+  // },[products])
 
   return (
     <div className="row" style={{ marginTop: '10px' }}>
