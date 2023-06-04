@@ -41,10 +41,10 @@ const ProductsComponent = () => {
                       activeColor="#ffd700">
                     </ReactStars>
                   </div>
-                  <button className="btn btn-success"
+                  {/* <button className="btn btn-success"
                   onClick={()=>dispatch(addProudcts(product))}
 
-                  >Add to Cart</button>
+                  >Add to Cart</button> */}
                 </div>
               </a>
             </div>

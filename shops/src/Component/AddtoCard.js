@@ -8,8 +8,8 @@ import { useParams } from 'react-router';
 const AddtoCard = () => {
   const { productId } = useParams();
   const product = useSelector(state => state.allProudcts.products);
-  const { id,title, price, category, image, description } = product
-  console.log(product);
+  // const { id,title, price, category, image, description } = product
+  console.log(products);
   const quantity =useSelector(state =>state.allProudcts.numberproducts)
   const dispatch = useDispatch();
   const products = products.find((product) => String(product.id) === productId);
