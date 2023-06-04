@@ -1,14 +1,17 @@
 import React, { useEffect } from "react";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import ReactStars from "react-rating-stars-component";
 import { Link } from "react-router-dom";
+import { addProudcts } from "../redux/action/products_action";
 
 const ProductsComponent = () => {
   const products = useSelector((state) => state.allProudcts.products)
-  console.log(products);
+  console.log("items:",products);
+
+  const dispatch =useDispatch();
 
   // useEffect(()=>{
-  // products
+  //       products
   // },[products])
 
   return (
@@ -18,8 +21,8 @@ const ProductsComponent = () => {
           <h1>cartcount</h1>
         </div>
         <div className="row">
-          {products.map((product) => (
-            <div key={product.id} className="col-11 col-md-6 col-lg-3 mx-0 mb-4" style={{ marginBottom: '18px' }}>
+          {products.map((product,index) => (
+            <div key={index} className="col-11 col-md-6 col-lg-3 mx-0 mb-4" style={{ marginBottom: '18px' }}>
               <a href={`/product/${product.id}`}>
                 <div className='custom-card overflow-hidden h-100 shadow'>
                   <img className="card-img-center img-fluid " src={product.image}
@@ -27,7 +30,7 @@ const ProductsComponent = () => {
                   <h6 className="card-text text-center text-uppercase">{product.category}</h6>
                   <h5 className="card-title text-center">${product.price}</h5>
                   <div className='py-2 d-flex justify-content-center fs-6'>
-                    {/* <ReactStars
+                    <ReactStars
                       count={5}
                       value={product.rating.rate}
                       isHalf={true}
@@ -36,12 +39,12 @@ const ProductsComponent = () => {
                       halfIcon={<i className="fa fa-star-half-alt"></i>}
                       fullIcon={<i className="fa fa-star"></i>}
                       activeColor="#ffd700">
-                    </ReactStars> */}
+                    </ReactStars>
                   </div>
-                  {/* <button className="btn btn-success"
-                  // onClick={()=>dispatch(addProducts(product))}
+                  <button className="btn btn-success"
+                  onClick={()=>dispatch(addProudcts(product))}
 
-                  >Add to Cart</button> */}
+                  >Add to Cart</button>
                 </div>
               </a>
             </div>

@@ -8,11 +8,11 @@ import { useParams } from 'react-router';
 const AddtoCard = () => {
   const { productId } = useParams();
   const product = useSelector(state => state.allProudcts.products);
-  // const { id,title, price, category, image, description } = product
+  const { id,title, price, category, image, description } = product
   console.log(product);
   const quantity =useSelector(state =>state.allProudcts.numberproducts)
   const dispatch = useDispatch();
-  // const products = products.find((product) => String(product.id) === productId);
+  const products = products.find((product) => String(product.id) === productId);
 
 
   const fetchProuductsDetails = async () => {
@@ -58,7 +58,7 @@ const AddtoCard = () => {
                       onClick={() => { dispatch(incresaseProducts(product)) }} >+</button>
                    
                     <button className='btn btn-danger ms-2'
-                     onClick={() => { dispatch(deletedProducts(product.id)) }}>Remove</button>
+                     onClick={() => { dispatch(deletedProducts(product)) }}>Remove</button>
 
                   </td>
 

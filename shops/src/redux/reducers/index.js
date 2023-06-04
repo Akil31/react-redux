@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import { productsReducer } from "./products_reducer";
+import { productsReducer,selectedProuctsReducer,deletedProductsReducer } from "./products_reducer";
 
 
 const reducers = combineReducers({
     allProudcts: productsReducer,
-    // selectProduct: selectedProuctsReducer,
-    // remove: deletedProductsReducer
+    selectProduct: selectedProuctsReducer,
+    remove: deletedProductsReducer
 
 
 })

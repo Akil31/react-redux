@@ -49,7 +49,7 @@ const ProductsDetails = () => {
                                         <i className="shop icon"></i>
                                     </div>
                                     <button className="btn btn-warning me-3"
-                                    onClick={()=>dispatch(addProudcts(product))}>Add Card</button>
+                                        onClick={() => dispatch(addProudcts(product))}>Add Card</button>
 
                                     {/* <button className="btn btn-success">Buy Now</button> */}
                                 </div>
